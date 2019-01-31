@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="game-registration" *ngIf="allPlayers[0]">
+  <h1>Spielhistorie</h1>
+  <table class="table table-striped">
+    <tr>
+      <th scope="col">Spielnummer</th>
+      <th scope="col">Spieler 1</th>
+      <th scope="col">Spieler 2</th>
+      <th scope="col">Tore Spieler 1</th>
+      <th scope="col">Tore Spieler 2</th>
+      <th scope="col"></th>
+    </tr>
+    <tr>
+      <td>#</td>
+      <td>
+        <select #firstName class="custom-select" id="playerOne">
+          <option selected>Spieler wählen</option>
+          <option *ngFor="let player of allPlayers | orderBy: 'name'" value="{{player.name}}">{{player.name}}</option>
+        </select>
+      </td>
+      <td>
+        <select #secondName class="custom-select" id="playerTwo">
+          <option selected>Spieler wählen</option>
+          <option *ngFor="let player of allPlayers | orderBy: 'name'" value="{{player.name}}" >{{player.name}}</option>
+        </select>
+      </td>
+
+      <td>
+        <select #goalsOne class="custom-select" id="goalsPlayerOne">
+          <option selected>Tore angeben</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+        </select>
+      </td>
+      <td>
+        <select #goalsTwo class="custom-select" id="goalsPlayerTwo">
+          <option selected>Tore angeben</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+        </select>
+      </td>
+      <td>
+        <button class="btn btn-outline-secondary" type="button" (click)="validateRegistration(firstName.value, secondName.value, goalsOne.value*1, goalsTwo.value*1)">Bestätigen</button>
+      </td>
+    </tr>
+    <tr *ngFor="let game of allGames | orderBy: 'id'">
+      <td>{{game.id}}</td>
+      <td>{{game.playerOne.name}}</td>
+      <td>{{game.playerTwo.name}}</td>
+      <td>{{game.goalsPlayerOne}}</td>
+      <td>{{game.goalsPlayerTwo}}</td>
+      <td></td>
+    </tr>
+
+  </table>
+</div>
+
+</body>
+</html>

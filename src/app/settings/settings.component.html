@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="settings">
+  <h1>Spieleinstellungen</h1>
+  <div class="input-group mb-3">
+    <input onfocus="this.value=''" (keyup)="clickedEnter($event, nameInput.value)" #nameInput id="inputField" type="text" class="form-control" placeholder="Spielername" aria-label="Spielername" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" (click)="onClick(nameInput.value)">Hinzufügen</button>
+    </div>
+  </div>
+</div>
+
+<app-table-listing [newPlayer]="this.Player" [helpNumber]="helpNumber"></app-table-listing>
+
+</body>
+</html>

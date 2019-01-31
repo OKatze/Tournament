@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="table-listing" *ngIf="allPlayers[0]">
+<h1>Tabelle</h1>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Platz</th>
+      <th scope="col">Name</th>
+      <th scope="col">Spiele</th>
+      <th scope="col">g.</th>
+      <th scope="col">u.</th>
+      <th scope="col">v.</th>
+      <th scope="col">Tore</th>
+      <th scope="col">Diff.</th>
+      <th scope="col">Pkte.</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let player of allPlayers | sortTable: allPlayers; let tablePlace = index">
+      <td scope="row">{{tablePlace +1}}</td>
+      <td>{{player?.name}}</td>
+      <td>{{player?.playedGames}}</td>
+      <td>{{player?.wonGames}}</td>
+      <td>{{player?.drawGames}}</td>
+      <td>{{player?.lostGames}}</td>
+      <td>{{player?.goalsOwned}}:{{player.goalsAgainst}}</td>
+      <td>{{player?.goalsDifference}}</td>
+      <td>{{player?.points}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</body>
+</html>
